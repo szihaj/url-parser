@@ -55,4 +55,14 @@ class UrlParser
             (isset($parts['fragment']) ? "#{$parts['fragment']}" : '');
     }
     
+    public function getWithPath()
+    {
+        $parts = $this->pieces;
+
+        return (isset($parts['scheme']) ? "{$parts['scheme']}:" : '') .
+            '//' .
+            (isset($parts['host']) ? "{$parts['host']}" : '') .
+            (isset($parts['path']) ? "{$parts['path']}" : '');
+    }
 }
+

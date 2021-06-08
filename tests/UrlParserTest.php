@@ -56,4 +56,17 @@ class UrlParserTest extends TestCase
             $parser->url()
         );
     }
+
+    /** @test */
+    function it_returns_the_path_without_query_params()
+    {
+        $parser = new UrlParser('https://helio.hu/test?metal=metal');
+
+        $this->assertEquals(
+            'https://helio.hu/test',
+            $parser->getWithPath()
+        );
+    }
+
+    // @todo: full url (user, etc)
 }
